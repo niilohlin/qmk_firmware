@@ -29,15 +29,13 @@ enum layers {
 
 enum custom_keycodes {
     VRSN = SAFE_RANGE,
-    EMAIL,
-    WORK_EMAIL
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = LAYOUT(
         KC_DLR,  KC_AMPR, KC_LBRC, KC_LCBR, KC_RCBR, KC_LPRN, TG(MDIA),         KC_HASH, KC_EQL,  KC_ASTR, KC_RPRN, KC_PLUS, KC_RBRC, KC_EXLM,
-        KC_MINS, KC_Q,    KC_D,    KC_R,    KC_W,    KC_B,    OSL(SYMB),         KC_DEL,  KC_J,    KC_F,    KC_U,    KC_P,    KC_SCLN, KC_SLSH,
-        KC_LSFT, KC_A,    KC_S,    KC_H,    KC_T,    KC_G,    KC_TAB,           KC_TAB,  KC_Y,    KC_N,    KC_E,    KC_O,    KC_I,    KC_RSFT,
+        KC_MINS, KC_Q,    KC_D,    KC_R,    KC_W,    KC_B,    TG(SYMB),         KC_DEL,  KC_J,    KC_F,    KC_U,    KC_P,    KC_SCLN, KC_SLSH,
+        KC_LSFT, LCTL_T(KC_A),    LALT_T(KC_S),    LGUI_T(KC_H),    LSFT_T(KC_T),    KC_G,    KC_TAB,           KC_TAB,  KC_Y,    RSFT_T(KC_N),    RGUI_T(KC_E),    LALT_T(KC_O),    RCTL_T(KC_I),    KC_RSFT,
         KC_LCTL, KC_Z,    KC_X,    KC_M,    KC_C,    KC_V,                               KC_K,    KC_L,    KC_COMM, KC_DOT,  KC_QUOT, KC_RCTL,
         KC_LALT, KC_HYPR, KC_BSLS, KC_LEFT, KC_RGHT,          KC_BSPC,          KC_BSPC,          KC_UP,   KC_DOWN, KC_AT,   KC_HYPR, KC_RALT,
                                             KC_LGUI, KC_ENT,  KC_ESC,           KC_ESC,  KC_ENT,  KC_SPC
@@ -47,8 +45,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         VRSN,    KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   _______,           _______, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
         _______, KC_EXLM, KC_AT,   KC_LCBR, KC_RCBR, KC_PIPE, _______,           _______, KC_UP,   KC_7,    KC_8,    KC_9,    KC_ASTR, KC_F12,
         _______, KC_HASH, KC_DLR,  KC_LPRN, KC_RPRN, KC_GRV,  _______,           _______, KC_DOWN, KC_4,    KC_5,    KC_6,    KC_PLUS, _______,
-        _______, KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_TILD,                             KC_AMPR, KC_1,    KC_2,    KC_3,    KC_BSLS, WORK_EMAIL,
-        EE_CLR,  _______, _______, _______, _______,          RGB_VAI,           RGB_TOG,          _______, KC_DOT,  KC_0,    KC_EQL,  EMAIL,
+        _______, KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_TILD,                             KC_AMPR, KC_1,    KC_2,    KC_3,    KC_BSLS, _______,
+        EE_CLR,  _______, _______, _______, _______,          RGB_VAI,           RGB_TOG,          _______, KC_DOT,  KC_0,    KC_EQL,  _______,
                                             RGB_HUD, RGB_VAD, RGB_HUI, TOGGLE_LAYER_COLOR,_______, _______
     ),
 
@@ -67,12 +65,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         switch (keycode) {
         case VRSN:
             SEND_STRING (QMK_KEYBOARD "/" QMK_KEYMAP " @ " QMK_VERSION);
-            return false;
-        case EMAIL:
-            SEND_STRING ("niilohlin@gmail.com");
-            return false;
-        case WORK_EMAIL:
-            SEND_STRING ("niil.ohlin@quickbit.com");
             return false;
         }
     }
