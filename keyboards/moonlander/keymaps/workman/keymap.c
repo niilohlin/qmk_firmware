@@ -33,13 +33,16 @@ enum custom_keycodes {
     WORK_EMAIL
 };
 
+#define KC_MW_U KC_MS_WH_UP
+#define KC_MW_D KC_MS_WH_DOWN
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = LAYOUT(
-        KC_DLR,  KC_AMPR, KC_LBRC, KC_LCBR, KC_RCBR, KC_LPRN, TG(MDIA),         KC_HASH, KC_EQL,  KC_ASTR, KC_RPRN, KC_PLUS, KC_RBRC, KC_EXLM,
+        KC_DLR,  KC_AMPR, KC_LBRC, KC_LCBR, KC_RCBR, KC_LPRN, _______,         KC_HASH, KC_EQL,  KC_ASTR, KC_RPRN, KC_PLUS, KC_RBRC, KC_EXLM,
         KC_MINS, KC_Q,    KC_D,    KC_R,    KC_W,    KC_B,    OSL(SYMB),         KC_DEL,  KC_J,    KC_F,    KC_U,    KC_P,    KC_SCLN, KC_SLSH,
         KC_LSFT, KC_A,    KC_S,    KC_H,    KC_T,    KC_G,    KC_TAB,           KC_TAB,  KC_Y,    KC_N,    KC_E,    KC_O,    KC_I,    KC_RSFT,
         KC_LCTL, KC_Z,    KC_X,    KC_M,    KC_C,    KC_V,                               KC_K,    KC_L,    KC_COMM, KC_DOT,  KC_QUOT, KC_RCTL,
-        KC_LALT, KC_HYPR, KC_BSLS, KC_LEFT, KC_RGHT,          KC_BSPC,          KC_BSPC,          KC_UP,   KC_DOWN, KC_AT,   KC_HYPR, KC_RALT,
+        KC_LALT, KC_HYPR, KC_BSLS, KC_LEFT, KC_RGHT,          TG(MDIA),         KC_BSPC,          KC_UP,   KC_DOWN, KC_AT,   KC_HYPR, KC_RALT,
                                             KC_LGUI, KC_ENT,  KC_ESC,           KC_ESC,  KC_ENT,  KC_SPC
     ),
 
@@ -54,10 +57,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [MDIA] = LAYOUT(
         LED_LEVEL,_______,_______, _______, _______, _______, _______,           _______, _______, _______, _______, _______, _______, QK_BOOT,
-        _______, _______, _______, KC_MS_U, _______, _______, _______,           _______, _______, _______, _______, _______, _______, _______,
-        _______, _______, KC_MS_L, KC_MS_D, KC_MS_R, _______, _______,           _______, _______, _______, _______, _______, _______, KC_MPLY,
-        _______, _______, _______, _______, _______, _______,                             _______, _______, KC_MPRV, KC_MNXT, _______, _______,
-        _______, _______, _______, KC_BTN1, KC_BTN2,         _______,            _______,          KC_VOLU, KC_VOLD, KC_MUTE, _______, _______,
+        _______, _______, _______, KC_MW_U, _______, _______, _______,           _______, _______, _______, KC_MS_U, _______, _______, _______,
+        _______, _______, _______, KC_MW_D, _______, _______, _______,           _______, _______, KC_MS_L, KC_MS_D, KC_MS_R, _______, KC_MPLY,
+        _______, _______, _______, KC_BTN1, KC_BTN2, _______,                             _______, _______, KC_MPRV, KC_MNXT, _______, _______,
+        _______, _______, _______, _______, _______,          _______,           _______,          KC_VOLU, KC_VOLD, KC_MUTE, _______, _______,
                                             _______, _______, _______,           _______, _______, _______
     ),
 };
